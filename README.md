@@ -34,7 +34,7 @@ CRUD para cadastrar a hierarquia de colaboradores e suas respectivas senhas.
 #### Buscar colaborador por hierarquia
 #### Retorna uma lista de colaboradores separados por hierarquia.
 ```http
-  GER /colaboradores/hierarquia
+  GET /colaboradores/hierarquia
 ```
 ###### Response
 ```json
