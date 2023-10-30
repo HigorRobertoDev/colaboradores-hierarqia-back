@@ -1,0 +1,19 @@
+CREATE TABLE colaboradores(
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	senha VARCHAR(100) NOT NULL,
+	score INT NOT NULL,
+	complexity VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE hierarquia(
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	descricao VARCHAR(100) NOT NULL
+);
+
+ALTER TABLE colaboradores
+ADD COLUMN id_hierarquia INT NOT NULL;
+
+ALTER TABLE colaboradores
+ADD CONSTRAINT hierarquia_fk
+FOREIGN KEY(id_hierarquia) REFERENCES hierarquia(id);

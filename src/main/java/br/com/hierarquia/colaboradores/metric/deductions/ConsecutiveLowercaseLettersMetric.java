@@ -1,0 +1,24 @@
+package br.com.hierarquia.colaboradores.metric.deductions;
+
+import br.com.hierarquia.colaboradores.metric.model.Metric;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class ConsecutiveLowercaseLettersMetric implements Metric {
+    private static final Pattern REGEX = Pattern.compile("([a-z]{2,})");
+
+    @Override
+    public int count(String password) {
+        Matcher matcher = REGEX.matcher(password.replaceAll("\\s", ""));
+        int count = 0;
+        while (matcher.find())
+            count += (matcher.group().length() - 1);
+        return count;
+    }
+
+    @Override
+    public int rate(int n, int len) {
+        return -(n * 2);
+    }
+}

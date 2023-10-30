@@ -1,0 +1,29 @@
+package br.com.hierarquia.colaboradores.metric.additions;
+
+import br.com.hierarquia.colaboradores.metric.model.Metric;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class MiddleNumbersOrSymbolsMetricTest {
+    private Metric metric;
+
+    @BeforeEach
+    public void setUp() {
+        metric = new MiddleNumbersOrSymbolsMetric();
+    }
+
+    @Test
+    public void count() {
+        int n = metric.count(" 0  Aa1Bb* 0 ");
+        assertEquals(2, n);
+    }
+
+    @Test
+    public void zero() {
+        int n = metric.count("*aA0");
+        assertEquals(0, n);
+    }
+
+}
